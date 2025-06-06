@@ -1,0 +1,13 @@
+# Node
+node_modules
+.next
+.env.local
+# PHP
+vendor
+.env
+# Docker artefacts
+docker/*.log
+storage
+# Geral
+.idea
+.DS_Store
