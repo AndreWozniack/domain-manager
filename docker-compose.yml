@@ -1,7 +1,5 @@
-version: "3.9"
-
 services:
-    app:               # PHP-FPM + Composer + Node (para npm install do Laravel Mix, se precisar)
+    app:
         build: ./docker/php
         volumes:
             - ./backend:/var/www/html
@@ -14,7 +12,7 @@ services:
         depends_on:
             - db
 
-    web:               # nginx servindo Laravel
+    web:
         image: nginx:alpine
         volumes:
             - ./backend:/var/www/html
