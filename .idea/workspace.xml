@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="751d6301-cf6d-4812-bcd2-8c5d4893d2fc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/app/Models/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/bootstrap/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/bootstrap/providers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/filesystems.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/logging.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/mail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/queue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/config/session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/database/factories/UserFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/database/migrations/0001_01_01_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/database/migrations/0001_01_01_000001_create_cache_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/database/migrations/0001_01_01_000002_create_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/database/seeders/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/public/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/next-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/resources/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/resources/views/welcome.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/routes/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/tests/TestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/laravel/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/file.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/file.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/globe.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/globe.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/next.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/next.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/vercel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/vercel.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/window.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/window.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/page.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AndreWozniack&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AndreWozniack/domain-manager.git&quot;,
+    &quot;accountId&quot;: &quot;ed400b31-6b84-46e1-b91c-315ddab96a06&quot;
+  }
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2y981w3s9agqbv7nU1PmKjDBuyq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/andrewozniack/Documents/GitHub/domain-manager&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/andrewozniack/Documents/GitHub/domain-manager/frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/docker/nginx/conf.d" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-PS-251.26094.133" />
+        <option value="bundled-php-predefined-a98d8de5180a-c5828cf854d9-com.jetbrains.php.sharedIndexes-PS-251.26094.133" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="751d6301-cf6d-4812-bcd2-8c5d4893d2fc" name="Changes" comment="" />
+      <created>1749235217536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749235217536</updated>
+      <workItem from="1749235219387" duration="10594000" />
+      <workItem from="1749251478816" duration="110000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
