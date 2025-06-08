@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\DomainRepository;
+use App\Repositories\DomainRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -12,10 +14,11 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(
-            \App\Repositories\DomainRepositoryInterface::class,
-            \App\Repositories\DomainRepository::class
+            DomainRepositoryInterface::class,
+            DomainRepository::class
         );
     }
+
 
     /**
      * Bootstrap services.
