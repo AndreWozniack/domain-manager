@@ -14,14 +14,9 @@ class DomainRequest extends FormRequest
         return false;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
-        $id = $this->route('dominio');   // null no create
+        $id = $this->route('dominio');
         return [
             'nome'   => 'required|string|max:255',
             'dominio'=> "required|string|regex:/^[\w.-]+\.[a-z]{2,}$/i|unique:domains,dominio,$id",
