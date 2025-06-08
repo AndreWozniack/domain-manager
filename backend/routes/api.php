@@ -1,5 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\DomainController;
 
-Route::apiResource('dominios', \App\Http\Controllers\Api\DomainController::class);
+Route::apiResource('dominios', DomainController::class);
