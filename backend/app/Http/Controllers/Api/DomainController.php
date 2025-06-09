@@ -37,11 +37,9 @@ class DomainController extends Controller
         return new DomainResource($updated);
     }
 
-    public function destroy(Domain $dominio): Response
+    public function destroy(Domain $dominio): JsonResponse
     {
         $this->service->delete($dominio);
-        print "Domain deleted successfully.\n";
-        return response();
+        return response()->json(['message' => 'Domínio deletado com sucesso'], 200);
     }
-
 }
