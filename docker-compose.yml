@@ -1,8 +1,11 @@
 services:
     app:
-        build: ./docker/php
+        build:
+            context: .
+            dockerfile: ./docker/php/Dockerfile
         volumes:
             - ./backend:/var/www/html
+            - vendor_app:/var/www/html/vendor
         environment:
             APP_ENV: local
             DB_HOST: db
@@ -24,8 +27,8 @@ services:
 
     front:
         build: ./frontend
-        command: sh -c "npm install && npm run build && npm run start"
-#        command: sh -c "npm install && npm run dev"
+#        command: sh -c "npm install && npm run build && npm run start"
+        command: sh -c "npm install && npm run dev"
         volumes:
             - ./frontend:/app
             - /app/node_modules
@@ -46,3 +49,4 @@ services:
 
 volumes:
     db_data:
+    vendor_app:
