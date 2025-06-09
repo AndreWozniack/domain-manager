@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DomainCollection;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Services\DomainService;
@@ -27,20 +26,22 @@ class DomainController extends Controller
         return response()->json(new DomainResource($dominio), 201);
     }
 
-    public function show(Domain $domain): DomainResource
+    public function show(Domain $dominio): DomainResource
     {
-        return new DomainResource($domain);
+        return new DomainResource($dominio);
     }
 
-    public function update(DomainRequest $req, Domain $domain): DomainResource
+    public function update(DomainRequest $req, Domain $dominio): DomainResource
     {
-        $updated = $this->service->update($domain, $req->validated());
+        $updated = $this->service->update($dominio, $req->validated());
         return new DomainResource($updated);
     }
 
-    public function destroy(Domain $domain): Response
+    public function destroy(Domain $dominio): Response
     {
-        $this->service->delete($domain);
-        return response()->noContent();
+        $this->service->delete($dominio);
+        print "Domain deleted successfully.\n";
+        return response();
     }
+
 }

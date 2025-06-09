@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
+use App\Http\Resources\DomainCollection;
 use App\Models\Domain;
-use Illuminate\Database\Eloquent\Collection;
 
 class DomainRepository implements DomainRepositoryInterface
 {
-    public function all(): Collection
+    public function all(): DomainCollection
     {
-        return Domain::all();
+        return new DomainCollection(Domain::all());
     }
 
     public function find(int $id): ?Domain
