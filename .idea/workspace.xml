@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="751d6301-cf6d-4812-bcd2-8c5d4893d2fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/user.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/(auth)/login/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/RequireAuth.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/domainService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/DomainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/DomainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/DomainRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/DomainRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/List.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/axios.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +200,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
     "ts.external.directory.path": "/Users/andrewozniack/Documents/GitHub/domain-manager/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -229,7 +216,7 @@
       <recent name="$PROJECT_DIR$/docker/nginx/conf.d" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/backend/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
@@ -243,6 +230,21 @@
       </option>
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -261,7 +263,7 @@
       <updated>1749235217536</updated>
       <workItem from="1749235219387" duration="10594000" />
       <workItem from="1749251478816" duration="110000" />
-      <workItem from="1749252255434" duration="24513000" />
+      <workItem from="1749252255434" duration="26101000" />
     </task>
     <servers />
   </component>
