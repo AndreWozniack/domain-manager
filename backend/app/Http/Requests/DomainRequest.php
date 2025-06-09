@@ -11,15 +11,16 @@ class DomainRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->check();
     }
 
     public function rules(): array
     {
-        $id = $this->route('dominio');
+        $dominio = $this->route('dominio');
+
         return [
             'nome'   => 'required|string|max:255',
-            'dominio'=> "required|string|regex:/^[\w.-]+\.[a-z]{2,}$/i|unique:domains,dominio,$id",
+            'dominio'=> "required|string|regex:/^[\w.-]+\.[a-z]{2,}$/i|unique:domains,dominio," . ($dominio?->id ?? 'NULL'),
             'cliente'=> 'nullable|string|max:255',
             'ativo'  => 'boolean',
             'data_registro'  => 'nullable|date',
@@ -27,4 +28,5 @@ class DomainRequest extends FormRequest
             'observacoes'    => 'nullable|string',
         ];
     }
+
 }
