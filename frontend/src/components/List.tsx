@@ -1,43 +1,53 @@
-import React from 'react'
-import Button from './Button'
+'use client';
 
-export interface Domain {
-    id: number | string
-    name: string
-    domain: string
-    client: string
-    active: boolean
-    registry_date: string
-    expiration_date: string
-    observations: string
-}
+import {useEffect, useState} from 'react';
+import {getDomains, deleteDomain, Domain} from '@/services/domainService';
+import RequireAuth from './RequireAuth';
 
 interface ListProps {
-    items: Domain[]
-    onEdit: (domain: Domain) => void
-    onDelete: (domain: Domain) => void
+    items: Domain[];
+    onEdit: (domain: Domain) => void;
+    onDelete: (domain: Domain) => void | Promise<void>;
 }
 
-export default function List({ items, onEdit, onDelete }: ListProps) {
-    return (
-        <ul className="space-y-4">
-            {items.map((domain) => (
-                <li
-                    key={domain.id}
-                    className="flex items-center justify-between bg-gray-100 p-4 rounded"
-                >
-                    <div className="flex-1">
-                        <h3 className="font-medium text-gray-900">{domain.name}</h3>
-                        <p className="text-sm text-gray-600">{domain.domain}</p>
-                    </div>
+export default function List({items}: ListProps) {
+    const [domains, setDomains] = useState<Domain[]>([]);
+    const [loading, setLoading] = useState(true);
 
-                    <div className="flex space-x-2">
-                        # Adicionar menu com tres pontinhos que abre as ações
-                        <Button onClick={() => onEdit(domain)}>Editar</Button>
-                        <Button onClick={() => onDelete(domain)}>Deletar</Button>
+    useEffect(() => {
+        getDomains()
+            .then(setDomains)
+            .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) return <p>Carregando…</p>;
+
+    const handleDelete = async (id: number) => {
+        if (!confirm('Excluir este domínio?')) return;
+        await deleteDomain(id);
+        setDomains(domains.filter(d => d.id !== id));
+    };
+
+    return (
+        <RequireAuth>
+            <div className="space-y-2">
+                {domains.map(d => (
+                    <div key={d.id} className="flex justify-between p-2 border rounded">
+                        <div>
+                            <strong>{d.nome}</strong> — {d.dominio}
+                        </div>
+                        <div className="space-x-2">
+                            <button onClick={() => {/* abrir modal de edição */
+                            }}>
+                                Editar
+                            </button>
+                            <button onClick={() => handleDelete(d.id)}>
+                                Deletar
+                            </button>
+                        </div>
                     </div>
-                </li>
-            ))}
-        </ul>
-    )
+                ))}
+            </div>
+        </RequireAuth>
+    );
 }

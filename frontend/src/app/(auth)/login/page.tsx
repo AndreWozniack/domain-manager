@@ -2,7 +2,7 @@
 
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 
 export default function LoginPage() {
     const { login, user } = useAuth();
@@ -11,13 +11,18 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    if (user) router.replace('/');
+    useEffect(() => {
+        if (user) {
+            router.push('/');
+        }
+    }, [user, router]);
+
 
     const handle = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             await login(email, password);
-            router.replace('/');
+            router.push('/');
         } catch (err: any) {
             setError(err.response?.data?.message ?? 'Erro');
         }

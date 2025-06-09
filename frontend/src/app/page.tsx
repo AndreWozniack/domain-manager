@@ -1,54 +1,95 @@
-'use client'
-import { useState, useEffect } from 'react'
-import List, { Domain } from '@/components/List'
-import { fetchDomains } from '@/services/domainService'
-import RequireAuth from "@/components/RequireAuth";
+'use client';
+
+import { useState, useEffect } from 'react';
+import RequireAuth from '@/components/RequireAuth';
+import List from '@/components/List';
+import DomainForm from '@/components/DomainForm';
+import {
+    Domain,
+    getDomains,
+    deleteDomain as apiDeleteDomain,
+} from '@/services/domainService';
 
 export default function Page() {
-    const [domains, setDomains] = useState<Domain[]>([])
-    const [loading, setLoading] = useState(true)
+    const [domains, setDomains] = useState<Domain[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    const [formOpen, setFormOpen] = useState(false);
+    const [editingDomain, setEditingDomain] = useState<Domain | undefined>(undefined);
 
     useEffect(() => {
-        fetchDomains()
-            .then(domains => setDomains(domains))
+        getDomains()
+            .then((list) => setDomains(list))
             .catch(console.error)
-            .finally(() => setLoading(false))
-    }, [])
+            .finally(() => setLoading(false));
+    }, []);
 
-    if (loading) return <p>Carregando domínios…</p>
+    if (loading) return <p>Carregando domínios…</p>;
 
-    function editDomain(domain: Domain) {
-        console.log('Editando domínio:', domain.domain);
-    }
+    const handleEdit = (domain: Domain) => {
+        console.log('Editando domínio:', domain.dominio);
+        setEditingDomain(domain);
+        setFormOpen(true);
+    };
 
-    function deleteDomain(domain: Domain) {
-        console.log("Deletando domínio:", domain.domain);
-    }
+    const handleDelete = async (domain: Domain) => {
+        if (!confirm(`Excluir o domínio “${domain.nome}”?`)) return;
+        await apiDeleteDomain(domain.id);
+        setDomains((curr) => curr.filter((d) => d.id !== domain.id));
+    };
+
+    const handleAddNew = () => {
+        setEditingDomain(undefined);
+        setFormOpen(true);
+    };
+
+    const handleSaved = (saved: Domain) => {
+        setFormOpen(false);
+        setDomains((curr) => {
+            const exists = curr.some((d) => d.id === saved.id);
+            if (exists) {
+                return curr.map((d) => (d.id === saved.id ? saved : d));
+            } else {
+                return [saved, ...curr];
+            }
+        });
+    };
 
     return (
         <RequireAuth>
+            <div className="max-w-xl mx-auto p-4 space-y-6">
+                <h1 className="text-2xl font-bold">Meus Domínios</h1>
 
+                {formOpen && (
+                    <div className="p-4 border rounded bg-gray-50 space-y-2">
+                        <h2 className="text-xl font-semibold">
+                            {editingDomain ? 'Editar Domínio' : 'Novo Domínio'}
+                        </h2>
+                        <DomainForm initial={editingDomain} onSaved={handleSaved} />
+                        <button
+                            onClick={() => setFormOpen(false)}
+                            className="text-gray-600 hover:underline"
+                        >
+                            Cancelar
+                        </button>
+                    </div>
+                )}
 
-        <div className="max-w-xl mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Meus Domínios</h1>
-            <List
-                items={domains}
-                onEdit={editDomain}
-                onDelete={deleteDomain}
-            />
+                {!formOpen && (
+                    <button
+                        onClick={handleAddNew}
+                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    >
+                        Adicionar Domínio
+                    </button>
+                )}
 
-            <div className="mt-4">
-                <button
-                    onClick={() => console.log('Adicionar novo domínio')}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                >
-                    Adicionar Domínio
-                </button>
+                <List
+                    items={domains}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                />
             </div>
-
-        </div>
         </RequireAuth>
-    )
+    );
 }
-
-
