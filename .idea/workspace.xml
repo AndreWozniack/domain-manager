@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="751d6301-cf6d-4812-bcd2-8c5d4893d2fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/DomainForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/DomainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/DomainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/DomainRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/DomainRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/cors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/conf.d/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/conf.d/default.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/php/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DomainForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DomainForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/List.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/services/domainService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/domainService.ts" afterDir="false" />
     </list>
@@ -47,6 +51,7 @@
     &quot;accountId&quot;: &quot;ed400b31-6b84-46e1-b91c-315ddab96a06&quot;
   }
 }</component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/backend/vendor/composer" />
@@ -267,7 +272,7 @@
       <workItem from="1749235219387" duration="10594000" />
       <workItem from="1749251478816" duration="110000" />
       <workItem from="1749252255434" duration="27709000" />
-      <workItem from="1749489071095" duration="5070000" />
+      <workItem from="1749489071095" duration="11289000" />
     </task>
     <servers />
   </component>
