@@ -15,6 +15,9 @@ Route::get('/health', static function () {
     ], 200);
 });
 
+
+
+
 Route::middleware('api')
     ->prefix('api')
     ->group(base_path('routes/api.php'));
