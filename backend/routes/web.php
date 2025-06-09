@@ -15,8 +15,7 @@ Route::get('/health', static function () {
     ], 200);
 });
 
-
-
+Route::get('/sanctum/csrf-cookie', static fn () => response()->noContent());
 
 Route::middleware('api')
     ->prefix('api')

@@ -14,3 +14,5 @@ Route::get ('/me',       [AuthController::class, 'me'])    ->middleware('auth:sa
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('dominios', DomainController::class);
 });
+
+
