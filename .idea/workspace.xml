@@ -5,32 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="751d6301-cf6d-4812-bcd2-8c5d4893d2fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Repositories/DomainRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/List.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/user.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/(auth)/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/RequireAuth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/axios.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/services/domainService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/DomainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/DomainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/DomainRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/DomainRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Domain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/DomainDepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/DomainRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/DomainRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/DomainService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/DomainService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/factories/DomainFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/DomainFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/DomainRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/DomainRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/UserFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/conf.d/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/conf.d/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/postcss.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/List.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -266,7 +261,7 @@
       <updated>1749235217536</updated>
       <workItem from="1749235219387" duration="10594000" />
       <workItem from="1749251478816" duration="110000" />
-      <workItem from="1749252255434" duration="15177000" />
+      <workItem from="1749252255434" duration="24513000" />
     </task>
     <servers />
   </component>
