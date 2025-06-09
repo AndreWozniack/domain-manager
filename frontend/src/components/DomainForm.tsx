@@ -1,20 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import {
-    createDomain,
-    updateDomain,
-    Domain,
-    DomainInput,
-} from '@/services/domainService';
+import { Domain, DomainInput } from '@/services/domainService';
 
 type Props = {
     initial?: Domain;
-    onSaved: (d: Domain) => void;
+    onSubmit: (payload: DomainInput) => Promise<void>;
 };
 
-export default function DomainForm({ initial, onSaved }: Props) {
-    // campos controlados, usando `initial` se existir
+export default function DomainForm({ initial, onSubmit }: Props) {
     const [nome, setNome] = useState(initial?.nome ?? '');
     const [dominio, setDominio] = useState(initial?.dominio ?? '');
     const [cliente, setCliente] = useState(initial?.cliente ?? '');
@@ -31,8 +25,9 @@ export default function DomainForm({ initial, onSaved }: Props) {
 
     const isEdit = Boolean(initial?.id);
 
-    const submit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         const payload: DomainInput = {
             nome,
             dominio,
@@ -43,15 +38,11 @@ export default function DomainForm({ initial, onSaved }: Props) {
             observacoes: observacoes || undefined,
         };
 
-        const saved = isEdit
-            ? await updateDomain(initial!.id, payload)
-            : await createDomain(payload);
-
-        onSaved(saved);
+        await onSubmit(payload);
     };
 
     return (
-        <form onSubmit={submit} className="space-y-4 max-w-md">
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
             <div>
                 <label className="block mb-1 font-medium">Nome</label>
                 <input
