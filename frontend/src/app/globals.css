@@ -16,14 +16,6 @@
   --text-secondary-color: var(--secundary-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --color-primary: #232425;
-    --secundary-color: #090a0a;
-  }
-}
 
 body {
   background: var(--background);
