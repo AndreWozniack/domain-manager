@@ -8,6 +8,7 @@ return [
         'api/login',
         'api/register',
         'api/logout',
+        '/sanctum/csrf-cookie',
     ],
 
     'allowed_methods' => ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
