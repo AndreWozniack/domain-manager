@@ -9,6 +9,11 @@ class DomainSeeder extends Seeder
 {
     public function run(): void
     {
-        Domain::factory()->count(20)->create();   // ajuste o count à vontade
+        if (Domain::count() > 0) {
+            echo "⚠️  Domínios já existem. Pulando DomainSeeder.\n";
+            return;
+        }
+
+        Domain::factory()->count(20)->create();
     }
 }
