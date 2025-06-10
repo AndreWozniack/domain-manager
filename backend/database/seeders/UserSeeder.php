@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
             return;
         }
 
-        User::factory()->create(
+        User::updateOrCreate(
             ['email' => env('ADMIN_EMAIL', 'admin@example.com')],
             [
                 'name'     => env('ADMIN_NAME',  'Administrator'),
