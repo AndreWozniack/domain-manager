@@ -19,10 +19,10 @@ export default function List({ items, onEdit, onDelete }: ListProps) {
                             <strong>{d.dominio}</strong> — {d.nome}
                         </div>
                         <div className="space-x-2">
-                            <button className="p-3 rounded-2xl bg-blue-600 text-amber-50" onClick={() => onEdit(d)}>
+                            <button className="p-3 rounded-xl bg-blue-600 text-amber-50 hover:bg-blue-800" onClick={() => onEdit(d)}>
                                 Editar
                             </button>
-                            <button className="p-3 rounded-2xl bg-red-700 text-amber-50" onClick={() => onDelete(d)}>
+                            <button className="p-3 rounded-xl bg-red-700 text-amber-50 hover:bg-red-900" onClick={() => onDelete(d)}>
                                 Deletar
                             </button>
                         </div>
