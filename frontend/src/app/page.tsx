@@ -97,7 +97,7 @@ export default function Page() {
         <RequireAuth>
             <div className="max-w-3xl mx-auto p-6 space-y-6">
                 <div className="flex justify-between items-center relative">
-                    <h1 className="text-3xl font-bold">Meus Domínios</h1>
+                    <h1 className="text-3xl font-bold">Gerenciado de Domínios</h1>
 
                     <div className="relative" ref={menuRef}>
                         <button

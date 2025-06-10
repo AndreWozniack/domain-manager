@@ -1,19 +1,19 @@
-# Gerenciador de dominios - Monorepo Laravel + Next.js
+# Gerenciador de Domínios - Monorepo Laravel + Next.js
 
 Este projeto é uma aplicação fullstack composta por:
 
-- **Backend:** Laravel 12
+- **Backend:** PHP 8.2 com Laravel 12
 - **Frontend:** Next.js com TypeScript
 - **Serviços:** NGINX como proxy reverso, MySQL como banco de dados
-- **Containerização:** Docker e Docker Compose
+- **Containerização:** Docker
 
 ---
 
-## 🧰 Tecnologias e Ferramentas
+## Tecnologias e Ferramentas
 
 - Laravel 12
-- Next.js 13+
-- MySQL 8.4
+- Next.js
+- MySQL
 - NGINX
 - Docker & Docker Compose
 - TailwindCSS, TypeScript
@@ -21,7 +21,7 @@ Este projeto é uma aplicação fullstack composta por:
 
 ---
 
-## 🗂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 /
@@ -39,7 +39,7 @@ Este projeto é uma aplicação fullstack composta por:
 
 ---
 
-## ⚙️ Como Executar o Projeto com Docker
+## Como Executar o Projeto com Docker
 
 ### 1. Clone o repositório
 ```bash
@@ -55,7 +55,7 @@ Crie o arquivo `.env` dentro da pasta `backend` com o seguinte conteúdo:
 # backend/.env
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY= #sera preenchido automaticamente
+APP_KEY= # será preenchido automaticamente
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -72,7 +72,6 @@ DB_PASSWORD=secret
 SESSION_DRIVER=database
 SESSION_DOMAIN=localhost
 SANCTUM_STATEFUL_DOMAINS=localhost:3000,127.0.0.1:3000
-
 ```
 
 Você pode copiar rapidamente com:
@@ -92,29 +91,34 @@ Isso irá:
 - Rodar o Next.js na porta `3000`
 - Configurar o banco de dados MySQL na porta `3307`
 
-## 🌐 Acesso
+---
 
-- Frontend: [http://localhost:3000](http://localhost:3000)
+## Acesso
+
+- Frontend: http://localhost:3000
+- Backend (Laravel via NGINX): http://localhost:8080
+- Banco de Dados (MySQL): localhost:3307
+---
+
+## Login de Teste
+
+Para testar a autenticação, utilize as seguintes credenciais:
+
+```bash
+email: admin@admin.com
+senha: secret123
+```
+Também é possivel criar novos usuários através do frontend.
+
+## 🔍 Observações Técnicas
+
+- O projeto utiliza **NGINX** como proxy reverso para o backend Laravel, o que simula um ambiente de produção real e permite melhor roteamento de requisições.
+- A autenticação foi implementada com **Laravel Sanctum**, que oferece autenticação baseada em sessão, integrada ao frontend via cookies com segurança.
+- O **backend** segue uma arquitetura limpa, organizada em camadas como **Repositories**, **Services** e **Http**, facilitando testes e manutenção.
+- O **frontend** em Next.js está estruturado com **contexts**, **services** e **componentes reutilizáveis**, usando o novo App Router e boas práticas de modularização.
 
 ---
 
-## ✅ Funcionalidades
-
-- Autenticação com Laravel Sanctum
-- Integração total entre frontend e backend
-- Ambientes isolados com Docker
-- Banco de dados persistente com volumes
-- NGINX como proxy reverso
-
----
-
-## 📦 Volumes Utilizados
-
-- `db_data`: volume persistente do banco MySQL
-- `vendor_app`: volume compartilhado dos vendors do Laravel
-
----
-
-## 👨‍💻 Autor
+## Autor
 
 Desenvolvido por André Wozniack
