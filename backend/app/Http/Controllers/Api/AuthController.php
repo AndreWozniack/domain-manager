@@ -20,7 +20,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        Auth::login($user);              // cria sessão + cookie
+        Auth::login($user);
 
         return response()->json(['user' => $user], 201);
     }
@@ -44,6 +44,4 @@ class AuthController extends Controller
     {
         return response()->json($request->user());
     }
-
-
 }
