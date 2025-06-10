@@ -45,3 +45,5 @@ export const deleteDomain = async (id: number): Promise<void> => {
     await csrf()
     await api.delete(`/api/dominios/${id}`);
 };
+
+

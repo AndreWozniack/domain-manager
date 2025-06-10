@@ -1,4 +1,3 @@
-// src/app/page.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -13,8 +12,11 @@ import {
     updateDomain,
     deleteDomain,
 } from '@/services/domainService';
+import { logout } from '@/services/auth';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
+    const router = useRouter();
     const [domains, setDomains] = useState<Domain[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -29,6 +31,11 @@ export default function Page() {
     }, []);
 
     if (loading) return <p>Carregando domínios…</p>;
+
+    const handleLogout = async () => {
+        await logout();
+        router.push('/login');
+    };
 
     const handleAddNew = () => {
         setEditingDomain(undefined);
@@ -61,34 +68,32 @@ export default function Page() {
 
     return (
         <RequireAuth>
-            <div className="max-w-xl mx-auto p-4 space-y-6">
-                <h1 className="text-2xl font-bold">Meus Domínios</h1>
+            <div className="max-w-1/2 mx-auto p-4 space-y-6">
+                <div className="flex justify-between items-center">
+                    <h1 className="text-2xl font-bold">Meus Domínios</h1>
+                </div>
 
-                {formOpen ? (
-                    <div className="p-4 border rounded bg-gray-50 space-y-2">
-                        <h2 className="text-xl font-semibold">
-                            {editingDomain ? 'Editar Domínio' : 'Novo Domínio'}
-                        </h2>
+                {formOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/40">
+                        <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg p-8 relative">
+                            <h2 className="text-xl font-semibold mb-4">
+                                {editingDomain ? 'Editar Domínio' : 'Novo Domínio'}
+                            </h2>
 
-                        <DomainForm
-                            initial={editingDomain}
-                            onSubmit={handleSubmit}
-                        />
+                            <DomainForm
+                                initial={editingDomain}
+                                onSubmit={handleSubmit}
+                            />
 
-                        <button
-                            onClick={() => setFormOpen(false)}
-                            className="text-gray-600 hover:underline"
-                        >
-                            Cancelar
-                        </button>
+                            <button
+                                onClick={() => setFormOpen(false)}
+                                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-lg"
+                                aria-label="Fechar"
+                            >
+                                ×
+                            </button>
+                        </div>
                     </div>
-                ) : (
-                    <button
-                        onClick={handleAddNew}
-                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                    >
-                        Adicionar Domínio
-                    </button>
                 )}
 
                 <List
@@ -96,7 +101,14 @@ export default function Page() {
                     onEdit={handleEdit}
                     onDelete={handleDelete}
                 />
+                <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                >
+                    Logout
+                </button>
             </div>
+
         </RequireAuth>
     );
 }

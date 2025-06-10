@@ -16,13 +16,13 @@ export default function List({ items, onEdit, onDelete }: ListProps) {
                 {items.map((d) => (
                     <div key={d.id} className="flex justify-between p-2 border rounded">
                         <div>
-                            <strong>{d.nome}</strong> — {d.dominio}
+                            <strong>{d.dominio}</strong> — {d.nome}
                         </div>
                         <div className="space-x-2">
-                            <button onClick={() => onEdit(d)}>
+                            <button className="p-3 rounded-2xl bg-blue-600 text-amber-50" onClick={() => onEdit(d)}>
                                 Editar
                             </button>
-                            <button onClick={() => onDelete(d)}>
+                            <button className="p-3 rounded-2xl bg-red-700 text-amber-50" onClick={() => onDelete(d)}>
                                 Deletar
                             </button>
                         </div>
