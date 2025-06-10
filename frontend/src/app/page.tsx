@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useRef} from 'react';
 import RequireAuth from '@/components/RequireAuth';
 import List from '@/components/List';
 import DomainForm from '@/components/DomainForm';
@@ -14,27 +14,48 @@ import {
 } from '@/services/domainService';
 import { logout } from '@/services/auth';
 import { useRouter } from 'next/navigation';
+import { Settings } from 'lucide-react';
 
 export default function Page() {
     const router = useRouter();
     const [domains, setDomains] = useState<Domain[]>([]);
+    const [filtered, setFiltered] = useState<Domain[]>([]);
     const [loading, setLoading] = useState(true);
-
+    const [query, setQuery] = useState('');
     const [formOpen, setFormOpen] = useState(false);
     const [editingDomain, setEditingDomain] = useState<Domain | undefined>();
+    const [showMenu, setShowMenu] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         getDomains()
-            .then(setDomains)
+            .then((data) => {
+                setDomains(data);
+                setFiltered(data);
+            })
             .catch(console.error)
             .finally(() => setLoading(false));
     }, []);
 
-    if (loading) return <p>Carregando domínios…</p>;
+    useEffect(() => {
+        const q = query.toLowerCase();
+        setFiltered(domains.filter((d) => d.nome.toLowerCase().includes(q)));
+    }, [query, domains]);
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setShowMenu(false);
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const handleLogout = async () => {
         await logout();
-        router.push('/login');
+        window.location.href = '/login';
     };
 
     const handleAddNew = () => {
@@ -66,12 +87,58 @@ export default function Page() {
         setFormOpen(false);
     };
 
+    if (loading) return (
+        <RequireAuth>
+            <p>Carregando domínios…</p>
+        </RequireAuth>
+    )
+
     return (
         <RequireAuth>
-            <div className="max-w-1/2 mx-auto p-4 space-y-6">
-                <div className="flex justify-between items-center">
-                    <h1 className="text-2xl font-bold">Meus Domínios</h1>
+            <div className="max-w-3xl mx-auto p-6 space-y-6">
+                <div className="flex justify-between items-center relative">
+                    <h1 className="text-3xl font-bold">Meus Domínios</h1>
+
+                    <div className="relative" ref={menuRef}>
+                        <button
+                            onClick={() => setShowMenu(prev => !prev)}
+                            className="text-gray-600 hover:text-gray-800"
+                            title="Configurações"
+                        >
+                            <Settings className="w-6 h-6"/>
+                        </button>
+
+                        {showMenu && (
+                            <div
+                                className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+                                <button
+                                    onClick={handleLogout}
+                                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <p className="text-gray-700">Total: {filtered.length} domínio(s)</p>
+                    <input
+                        type="text"
+                        placeholder="Buscar domínios..."
+                        className="border border-gray-300 rounded px-3 py-2 w-full sm:w-64"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                </div>
+
+                <button
+                    onClick={handleAddNew}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                    Novo Domínio
+                </button>
 
                 {formOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/40">
@@ -97,18 +164,12 @@ export default function Page() {
                 )}
 
                 <List
-                    items={domains}
+                    items={filtered}
                     onEdit={handleEdit}
                     onDelete={handleDelete}
                 />
-                <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-                >
-                    Logout
-                </button>
             </div>
-
         </RequireAuth>
     );
 }
+
