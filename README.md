@@ -55,22 +55,27 @@ Crie o arquivo `.env` dentro da pasta `backend` com o seguinte conteúdo:
 # backend/.env
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=
+APP_KEY= #sera preenchido automaticamente
 APP_DEBUG=true
 APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
-DB_DATABASE=backend
+DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=secret
 
 SESSION_DRIVER=database
+SESSION_DOMAIN=localhost
 SANCTUM_STATEFUL_DOMAINS=localhost:3000,127.0.0.1:3000
+
 ```
 
-Você pode copiar e editar rapidamente com:
+Você pode copiar rapidamente com:
 ```bash
 cp backend/.env.example backend/.env
 ```
@@ -86,20 +91,6 @@ Isso irá:
 - Rodar o Laravel na porta `8080`
 - Rodar o Next.js na porta `3000`
 - Configurar o banco de dados MySQL na porta `3307`
-
-### 4. Configure a aplicação Laravel
-
-Acesse o container do app e rode os comandos:
-
-```bash
-docker exec -it nome-do-container-app sh
-php artisan key:generate
-php artisan migrate
-```
-
-> Dica: use `docker ps` para ver o nome do container, ou nomeie ele com `container_name:` no `docker-compose.yml`.
-
----
 
 ## 🌐 Acesso
 
