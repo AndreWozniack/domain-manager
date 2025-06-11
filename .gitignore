@@ -17,8 +17,8 @@ storage
 .env.production
 .phpactor.json
 .phpunit.result.cache
+.idea
 /.fleet
-/.idea
 /.nova
 /.phpunit.cache
 /.vscode
