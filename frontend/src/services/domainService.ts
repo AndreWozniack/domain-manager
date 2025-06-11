@@ -22,7 +22,6 @@ export type DomainInput = {
     observacoes?: string;
 };
 
-
 export const getDomains = async (): Promise<Domain[]> => {
     await csrf()
     const res = await api.get<{ data: Domain[] }>('/api/dominios');
@@ -30,6 +29,7 @@ export const getDomains = async (): Promise<Domain[]> => {
 };
 
 export const createDomain = async (payload: DomainInput): Promise<Domain> => {
+    console.log('Creating domain with payload:', payload);
     await csrf()
     const res = await api.post<{ data: Domain }>('/api/dominios', payload);
     return res.data.data;
