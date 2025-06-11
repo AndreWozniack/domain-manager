@@ -23,7 +23,8 @@ class DomainController extends Controller
     public function store(DomainRequest $req): JsonResponse
     {
         $dominio = $this->service->create($req->validated());
-        return response()->json(new DomainResource($dominio), 201);
+        return response()->json(['data' => new DomainResource($dominio)], 201); // ou 200
+
     }
 
     public function show(Domain $dominio): DomainResource

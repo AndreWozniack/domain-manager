@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, useEffect, useRef} from 'react';
+import { useState, useEffect, useRef } from 'react';
 import RequireAuth from '@/components/RequireAuth';
 import List from '@/components/List';
 import DomainForm from '@/components/DomainForm';
@@ -16,6 +16,11 @@ import { logout } from '@/services/auth';
 import { useRouter } from 'next/navigation';
 import { Settings } from 'lucide-react';
 
+const sortDomains = (arr: Domain[]) =>
+    [...arr].sort((a, b) =>
+        (a.nome || '').localeCompare(b.nome || '')
+    );
+
 export default function Page() {
     const router = useRouter();
     const [domains, setDomains] = useState<Domain[]>([]);
@@ -29,9 +34,8 @@ export default function Page() {
 
     useEffect(() => {
         getDomains()
-            .then((data) => {
-                setDomains(data);
-                setFiltered(data);
+            .then(data => {
+                setDomains(sortDomains(data));
             })
             .catch(console.error)
             .finally(() => setLoading(false));
@@ -39,8 +43,17 @@ export default function Page() {
 
     useEffect(() => {
         const q = query.toLowerCase();
-        setFiltered(domains.filter((d) => d.nome.toLowerCase().includes(q)));
-    }, [query, domains]);
+        const filtered = domains
+            .filter(d => {
+                if (d === undefined) {
+                    console.warn('Domínio sem nome:', d);
+                    return false
+                }
+                return d.nome.toLowerCase().includes(q);
+            });
+
+        setFiltered(sortDomains(filtered));
+    }, [domains, query]);
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -48,14 +61,13 @@ export default function Page() {
                 setShowMenu(false);
             }
         }
-
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     const handleLogout = async () => {
         await logout();
-        window.location.href = '/login';
+        router.replace('/login');
     };
 
     const handleAddNew = () => {
@@ -71,33 +83,40 @@ export default function Page() {
     const handleDelete = async (domain: Domain) => {
         if (!confirm(`Excluir o domínio “${domain.nome}”?`)) return;
         await deleteDomain(domain.id);
-        setDomains((curr) => curr.filter((d) => d.id !== domain.id));
+        setDomains(curr => sortDomains(curr.filter(d => d.id !== domain.id)));
     };
 
     const handleSubmit = async (payload: DomainInput) => {
-        if (editingDomain) {
-            const updated = await updateDomain(editingDomain.id, payload);
-            setDomains((curr) =>
-                curr.map((d) => (d.id === updated.id ? updated : d))
-            );
-        } else {
-            const created = await createDomain(payload);
-            setDomains((curr) => [created, ...curr]);
+        try {
+            if (editingDomain) {
+                const updated = await updateDomain(editingDomain.id, payload);
+                setDomains(curr =>
+                    sortDomains(curr.map(d => d.id === updated.id ? updated : d))
+                );
+            } else {
+                const created = await createDomain(payload);
+                setDomains(curr => sortDomains([created, ...curr]));
+            }
+            setFormOpen(false);
+        } catch (error) {
+            console.error('Erro ao salvar domínio:', error);
+            alert('Erro ao salvar domínio. Verifique os dados e tente novamente.');
         }
-        setFormOpen(false);
     };
 
-    if (loading) return (
-        <RequireAuth>
-            <p>Carregando domínios…</p>
-        </RequireAuth>
-    )
+    if (loading) {
+        return (
+            <RequireAuth>
+                <p>Carregando domínios…</p>
+            </RequireAuth>
+        );
+    }
 
     return (
         <RequireAuth>
             <div className="max-w-3xl mx-auto p-6 space-y-6">
                 <div className="flex justify-between items-center relative">
-                    <h1 className="text-3xl font-bold">Gerenciado de Domínios</h1>
+                    <h1 className="text-3xl font-bold">Gerenciador de Domínios</h1>
 
                     <div className="relative" ref={menuRef}>
                         <button
@@ -105,12 +124,11 @@ export default function Page() {
                             className="text-gray-600 hover:text-gray-800"
                             title="Configurações"
                         >
-                            <Settings className="w-6 h-6"/>
+                            <Settings className="w-6 h-6" />
                         </button>
 
                         {showMenu && (
-                            <div
-                                className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+                            <div className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
                                 <button
                                     onClick={handleLogout}
                                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -129,7 +147,7 @@ export default function Page() {
                         placeholder="Buscar domínios..."
                         className="border border-gray-300 rounded px-3 py-2 w-full sm:w-64"
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={e => setQuery(e.target.value)}
                     />
                 </div>
 
@@ -172,4 +190,3 @@ export default function Page() {
         </RequireAuth>
     );
 }
-
