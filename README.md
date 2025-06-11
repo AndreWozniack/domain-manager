@@ -91,6 +91,8 @@ Isso irá:
 - Rodar o Next.js na porta `3000`
 - Configurar o banco de dados MySQL na porta `3307`
 
+As vezes é necessário esperar o PHP terminar de rodar o composer install e os migrates e seeds, dependendo da maquina varia um pouco a velocidade, o que de inicio pode causar um pequeno erro no front. Basta apenas o volume app terminar de rodar os scripts iniciais que tudo ira funcioanr corretamente.
+
 ---
 
 ## Acesso
